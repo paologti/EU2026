@@ -1,0 +1,122 @@
+:root {
+  --primary: #c0392b;
+  --primary-dark: #96281b;
+  --accent: #e67e22;
+  --sea: #2980b9;
+  --bg: #fdf6ec;
+  --card: #ffffff;
+  --text: #2c3e50;
+  --muted: #7f8c8d;
+  --border: #ecd9c6;
+  --shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #c0392b 0%, #e67e22 50%, #2980b9 100%);
+  color: #fff;
+  padding: 60px 20px 70px;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15), transparent 60%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+.eyebrow { font-size: 0.95rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; }
+.hero h1 { font-size: 2.8rem; margin: 8px 0; text-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+.subtitle { font-size: 1.25rem; opacity: 0.95; margin-bottom: 20px; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.badge {
+  background: rgba(255,255,255,0.22);
+  backdrop-filter: blur(4px);
+  padding: 6px 14px; border-radius: 999px; font-size: 0.9rem;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* ---------- TABS ---------- */
+.tabs {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; flex-wrap: wrap; gap: 4px;
+  background: var(--card);
+  padding: 10px; box-shadow: var(--shadow);
+  justify-content: center;
+}
+.tab {
+  text-decoration: none; color: var(--text);
+  padding: 8px 16px; border-radius: 999px;
+  font-weight: 600; font-size: 0.95rem; transition: all 0.2s;
+}
+.tab:hover { background: var(--bg); }
+.tab.active { background: var(--primary); color: #fff; }
+
+/* ---------- LAYOUT ---------- */
+main { max-width: 900px; margin: 0 auto; padding: 20px; }
+section { padding: 30px 0; scroll-margin-top: 70px; }
+section + section { border-top: 2px dashed var(--border); }
+h2 { font-size: 1.8rem; color: var(--primary-dark); margin-bottom: 16px; }
+.section-sub { margin: 24px 0 12px; color: var(--sea); font-size: 1.2rem; }
+.note { background: #fff8ef; border-left: 4px solid var(--accent); padding: 10px 14px; border-radius: 6px; color: var(--muted); margin-bottom: 16px; font-size: 0.95rem; }
+
+/* ---------- CARDS ---------- */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: var(--shadow); }
+.card h3 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
+
+/* ---------- TIMELINE ---------- */
+.timeline { display: flex; flex-direction: column; gap: 14px; }
+.timeline-item { display: flex; align-items: flex-start; gap: 14px; background: var(--card); padding: 14px; border-radius: 12px; box-shadow: var(--shadow); }
+.dot { flex: 0 0 36px; height: 36px; width: 36px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+/* ---------- DAY LISTS ---------- */
+.days { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.days li { background: var(--card); padding: 12px 16px; border-radius: 10px; border-left: 4px solid var(--sea); box-shadow: var(--shadow); }
+
+/* ---------- BUDGET ---------- */
+.rate-box { background: var(--card); padding: 14px; border-radius: 10px; box-shadow: var(--shadow); margin-bottom: 16px; }
+.rate-box label { font-weight: 600; }
+.rate-box input { width: 90px; padding: 6px; border: 1px solid var(--border); border-radius: 6px; font-size: 1rem; }
+.rate-box small { display: block; color: var(--muted); margin-top: 4px; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--primary); color: #fff; }
+th:nth-child(2), th:nth-child(3), td:nth-child(2), td:nth-child(3) { text-align: right; white-space: nowrap; }
+.total-row td { font-weight: 700; background: #fff8ef; border-top: 2px solid var(--accent); }
+.total-row.sub td { font-weight: 600; color: var(--muted); background: #fff; }
+
+/* ---------- CHECKLIST ---------- */
+.checklist-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.checklist-group { background: var(--card); padding: 18px; border-radius: 12px; box-shadow: var(--shadow); }
+.checklist-group h3 { color: var(--primary); margin-bottom: 10px; }
+.checklist-group label { display: flex; align-items: center; gap: 10px; padding: 6px 0; cursor: pointer; }
+.checklist-group input { width: 18px; height: 18px; accent-color: var(--primary); }
+.btn-secondary { margin-top: 16px; background: var(--card); border: 1px solid var(--primary); color: var(--primary); padding: 10px 18px; border-radius: 999px; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+.btn-secondary:hover { background: var(--primary); color: #fff; }
+
+/* ---------- NOTES ---------- */
+#notes { width: 100%; min-height: 180px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; font-family: inherit; font-size: 1rem; resize: vertical; box-shadow: var(--shadow); }
+.saved-indicator { color: var(--muted); font-size: 0.85rem; margin-top: 8px; opacity: 0; transition: opacity 0.3s; }
+.saved-indicator.show { opacity: 1; }
+
+/* ---------- FOOTER ---------- */
+footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 0.9rem; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2rem; }
+  .subtitle { font-size: 1.05rem; }
+  .tab { padding: 7px 12px; font-size: 0.85rem; }
+  h2 { font-size: 1.5rem; }
+}
